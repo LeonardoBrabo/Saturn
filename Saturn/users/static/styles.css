@@ -1,0 +1,100 @@
+* {
+	font-family: 'Baloo Tammudu 2', cursive; 
+}
+
+body {
+	background-image: url(images/fondo.png);
+	background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.section-flex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card {
+	margin-top: 90px !important;
+}
+
+.card-body-new{
+	background-color: white;
+    width: 35%;
+    margin: 20px 0 20px 0;
+    position: relative;
+	left: 50%;
+	padding: 20px 10px 20px 10px;
+}
+
+.card-body-ok{
+	width: 40%;
+    margin: 20px 0 20px 0;
+    position: relative;
+    top: 100px;
+    left: 50%;
+    padding: 20px 10px 20px 10px;
+	background-color: rgba(100, 120, 184, 0.712);
+	border: black 2px solid;
+}
+
+.card-title {
+	color: #4670FA;
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+.card-title-ok{
+	color: black;
+	font-size: 3rem;
+	font-weight: 700;
+}
+
+.btn.btn-dark{
+	display: block;
+	margin-top: 10px;
+}
+
+.botones{
+	width: 60%;
+    margin: 0 auto;
+}
+
+.form-check-input {
+	margin: 6px 0 0 -20px !important;
+}
+
+.form-group {
+	font-weight: 700;
+	font-size: 1.2rem;
+
+}
+
+.form-check-label {
+	font-weight: 400;
+}
+
+.btn {
+	font-size: 1.1rem;
+	font-weight: 700;
+} 
+
+.form-check-input {
+	margin-top: 6px;
+	margin-left: 15px;
+    justify-content: center;
+}
+
+
+.card-link {
+	font-weight: 700;
+	font-size: 1.3rem;
+}
+
+.form-group-register {
+    margin-bottom: .3rem ;
+}
+.sexo {
+    display: block;
+}

@@ -16,12 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from users import views
+from vistas import views
 
 urlpatterns = [
-    path('', views.welcome),
-    path('register', views.register),
-    path('login/', views.login),
-    path('logout', views.logout),
-
+    path('welcome/', views.welcome),
+    path('register/', views.register, name='register'),
+    path('login/', views.login, name='login'),
+    path('logout/', views.logout, name='logout'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('new_turn/', views.new_turn, name='new_turn'),
+    path('turn_ok/', views.turn_ok, name='turn_ok'),
     path('admin/', admin.site.urls),
 ]
+

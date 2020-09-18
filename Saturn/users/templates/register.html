@@ -1,11 +1,135 @@
-<h2>Registrar usuario</h2>
+{% extends 'base.html' %}
 
-<form method="POST">
-    {{ form.as_p }}
-    {% csrf_token %}
-    <button type="submit">Registrar</button>
-</form>
+{% block content %}
+  <body>
+    <section class="section-flex container-sm mt-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Crea tu cuenta</h5>
 
-<hr />
+          <form>
+            <div class="form-group-register">
+              <label for="exampleInputEmail1">Ingrese su email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="form-group-register">
+              <label for="exampleInputEmail1">Contraseña</label>
+              <input
+                type="password"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group-register col">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  required
+                />
+              </div>
+              <div class="form-group-register col">
+                <label for="exampleInputEmail1">Apellido</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  required
+                />
+              </div>
+            </div>
+            <div class="form-group-register">
+              <label for="exampleInputEmail1">Ingrese su DNI</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <div class="form-group-register col">
+                <label for="exampleInputPassword1">Telefono</label>
+                <input
+                  placeholder="362-4888888"
+                  pattern="[0-9]{3}\-?4[0-9]{6}"
+                  type="tel"
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  required
+                />
+              </div>
+              <div class="form-group-register col">
+                <label for="exampleInputEmail1">Fecha de nacimiento</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  required
+                />
+              </div>
+            </div>
+            <label for="Sexo">Sexo</label>
+            <div class="sexo mb-3">
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio1"
+                  value="hombre"
+                  required
+                />
+                <label class="form-check-label" for="inlineRadio1"
+                  >Hombre</label
+                >
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio2"
+                  value="mujer"
+                  required
+                />
+                <label class="form-check-label" for="inlineRadio2">Mujer</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio2"
+                  value="otro"
+                  required
+                />
+                <label class="form-check-label" for="inlineRadio2">Otro</label>
+              </div>
+            </div>
 
-<a href="/login">Iniciar sesión</a>
+            <button type="submit" class="btn btn-info btn-block">
+              Registrarse
+            </button>
+          </form>
+
+          <br />
+          <a href="{% url 'login' %}" class="card-link">Regresar</a>
+        </div>
+      </div>
+    </section>
+{% endblock %}
