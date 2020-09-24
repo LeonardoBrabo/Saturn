@@ -28,4 +28,4 @@ urlpatterns = [
     path('vistas/', include('vistas.urls')),
     path('users/', include('users.urls')),
     path('turnos/', include('turnos.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
