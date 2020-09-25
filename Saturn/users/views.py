@@ -13,8 +13,6 @@ from django.contrib.auth import login as do_login
 from django.contrib.auth import logout as do_logout
 from users.forms import RegistroForm
 
-def welcome(request):
-    return render(request, "welcome.html")
 
 def register(request):
     form = RegistroForm()
@@ -36,7 +34,7 @@ def login(request):
         password = request.POST['password']
         print(username)
         print(password)
-        account = authenticate(username=username, password=password)
+        account = authenticate(request,username=username, password=password)
         print(account)
         if account is not None:
             do_login(request, account)
@@ -45,6 +43,6 @@ def login(request):
     return render(request, "login.html")
 
 def logout(request):
-    # Redireccionamos a la portada
     do_logout(request)
     return redirect('/')
+ 

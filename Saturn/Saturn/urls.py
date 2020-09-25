@@ -14,24 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from users import views as vista
-from vistas import views
-from turnos import views as vistaTurnos
+from vistas import views 
+from turnos import views 
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
-    # path('', views.welcome),
-    path('register/', vista.register, name='register'),
-    path('', vista.login, name='login'),
-    path('logout/', vista.logout, name='logout'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    path('new_turn/', vistaTurnos.new_turn, name='new_turn'),
-    path('turn_ok/', vistaTurnos.turn_ok, name='turn_ok'),
-    path('combo_medico/', vistaTurnos.combo_medico, name='combo_medico'),
-    path('combo_horario/', vistaTurnos.combo_horario, name='combo_horario'),
-    path('listado_del_dia/', vistaTurnos.listado_del_dia, name='listado_del_dia'),
-    path('delete_turn/<int:TurnoId>/', vistaTurnos.delete_turn, name='delete_turn'),
-
+    path('', views.saturn_home, name='saturn_home'),    
     path('admin/', admin.site.urls),
-]
-
+    path('vistas/', include('vistas.urls')),
+    path('users/', include('users.urls')),
+    path('turnos/', include('turnos.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
