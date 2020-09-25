@@ -64,7 +64,7 @@
 {%endif%}
 
     <div style="margin-bottom: 80px;">
-        <a href="/dashboard/" class="btn btn-primary">Volver</a>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary">Volver</a>
         {%if turnos_del_dia %}
         <button id="imprimirListadoTurnos" class="btn btn-primary links">Imprimir</button>
         {%endif%}

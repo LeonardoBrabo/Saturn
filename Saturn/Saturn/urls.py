@@ -25,6 +25,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.saturn_home, name='saturn_home'),    
     path('admin/', admin.site.urls),
+    path('combo_medico/', views.combo_medico, name='combo_medico'),
+    path('combo_horario/', views.combo_horario, name='combo_horario'),
     path('vistas/', include('vistas.urls')),
     path('users/', include('users.urls')),
     path('turnos/', include('turnos.urls')),

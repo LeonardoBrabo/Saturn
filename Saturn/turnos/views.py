@@ -56,3 +56,15 @@ def turn_ok(request):
 
 def saturn_home(request):
     return redirect('login')
+
+def listado_del_dia(request):
+    return render(request, 'listado_del_dia.html')
+
+def combo_medico(request):
+    return render(request, 'combo_medico.html')
+
+def combo_horario(request):
+    return render(request, 'combo_horario.html')
+
+def delete_turn(request):
+    return render(request, 'delete_turn.html')

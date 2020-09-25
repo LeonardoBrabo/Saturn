@@ -8,14 +8,20 @@
       <div class="col-12 col-xl-4">
         <div class="d-flex flex-column h-100">
           <h1 class="text-center">
-            <span class="titulo-box">Bienvenido a Saturn</span>
+            <span class="titulo-box">Bienvenido al sistema de gestión de turnos Saturn</span>
           </h1>
           <div class="text-box mx-5 text-center">
-            <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. In dolore cupiditate doloribus iste quod quos recusandae molestias dolores iusto. Maiores corporis vel illo voluptate nihil neque eos quaerat adipisci quibusdam.</span>
+            <span>La nueva herramienta para acceder a citas médicas de forma rápida y de forma online</span>
           </div>
           <div class="d-flex justify-content-center align-items-center">
+            {% if cargar_boton%}
             <a href="{% url 'new_turn' %}" class="btn btn-primary link-box mx-2">Solicitar Turno</a>
             <a href="{% url 'turn_ok' %}" class="btn btn-primary link-box mx-2">Ver mis Turnos</a>
+            <a href="{% url 'listado_del_dia' %}" class="btn btn-primary ">Ver Turnos del dia</a>
+            {% else %}
+            <a href="{% url 'new_turn' %}" class="btn btn-primary link-box mx-2">Solicitar Turno</a>
+            <a href="{% url 'turn_ok' %}" class="btn btn-primary link-box mx-2">Ver mis Turnos</a>
+            {% endif %}
           </div>
         </div>
       </div>
