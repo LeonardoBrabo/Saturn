@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from turnos.forms import TurnoForm
-from turnos.models import Turno, EspecialidadMedico, Medico, ConfiguracionHoraria
+from turnos.models import Turno, EspecialidadMedico, Medico, ConfiguracionHoraria, ObraSocial
 from users.models import Registro
 from datetime import datetime
 
@@ -71,6 +71,28 @@ def combo_horario(request):
         }
     return render(request, "combo_horario.html", contexto)
 
+def adicional(request):
+    id_obrasocial = request.GET.get('obraSocialId')
+    obrasocial_adicional = ObraSocial.objects.get(ObraSocialId=id_obrasocial)
+    contexto = {
+        'obrasocial_adicional':obrasocial_adicional
+    }
+    return render(request, "adicional.html", contexto)
+
+def fecha_valida(request):
+    id_fecha_turno = request.GET.get('fecha_valida')
+    print("fecha del turno:", id_fecha_turno)
+    fecha_turno = datetime.datetime.strptime(id_fecha_turno, "%Y-%m-%d").date()
+    print("fecha convertida:", fecha_turno)
+    now = datetime.datetime.now().date()
+    print("Hoy: ", now)
+   
+    contexto = {
+        'fecha_turno':fecha_turno,
+        'now':now
+    }
+    return render(request, "fecha_valida.html", contexto)
+
 def turn_ok(request):    
     registro = Registro.objects.get(email=request.user)
     turno = Turno.objects.filter(usuario_id=registro.idUsuario)
@@ -84,18 +106,24 @@ def listado_del_dia(request):
     now = datetime.datetime.now().date()
     nombre_medico = ''
 
-    turnos_del_dia = []
-
+    listado = []
+   
     if request.method == "POST":
         medico_select = request.POST['listado_medico'] 
-
         medico = Medico.objects.get(medicoId=medico_select)
         nombre_medico = medico.nombre
-        turnos_del_dia = Turno.objects.filter(fecha_turno=now, medico_id=medico_select).order_by('-TurnoId')
+        display_type = request.POST.get("display_type", None)
+        print("DISPLAY:",display_type)
+        if display_type == 'listar_dia':
+            listado = Turno.objects.filter(fecha_turno=now, medico_id=medico_select).order_by('-TurnoId')
+            print("HOY:",listado)
+        elif display_type == 'listar_todo':
+            listado = Turno.objects.filter(medico_id=medico_select).order_by('-TurnoId')
+            print("TODO:",listado)
 
     contexto = {
         'medicos':medicos,
-        'turnos_del_dia':turnos_del_dia,
+        'listado':listado,
         'nombre_medico':nombre_medico
     }       
     # Si llegamos al final renderizamos el formulario

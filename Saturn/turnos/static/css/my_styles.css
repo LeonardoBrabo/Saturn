@@ -1,4 +1,4 @@
-/*.card-body-new {
+.card-body-new {
     margin-bottom: 90px !important;
     padding-left: 20px;
     margin-top: 20px;
@@ -44,8 +44,6 @@
     margin-bottom: 20px !important;
 }
 
-*/
-
 .botton{
     padding-top: 10rem;
     font-weight: 700;
@@ -55,17 +53,20 @@
     color: #fff;
 }
 
-/*.table tr, th, td {
+.table tr, th, td {
     border-bottom: 1px solid #111;
     text-align: center;
     vertical-align: middle
-}*/
+}
+
+.alert-info, .alert-warning, .alert-danger  {
+    margin-top: 5px;
+}
 
 .titulo-admin {
     margin-top: 5rem;
     font-weight: 700;
     font-size: 2rem;
-
 }
 
 .btn-buscar {

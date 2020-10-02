@@ -30,6 +30,8 @@ urlpatterns = [
     path('turn_ok/', vistaTurnos.turn_ok, name='turn_ok'),
     path('combo_medico/', vistaTurnos.combo_medico, name='combo_medico'),
     path('combo_horario/', vistaTurnos.combo_horario, name='combo_horario'),
+    path('adicional/', vistaTurnos.adicional, name='adicional'),
+    path('fecha_valida/', vistaTurnos.fecha_valida, name='fecha_valida'),
     path('listado_del_dia/', vistaTurnos.listado_del_dia, name='listado_del_dia'),
     path('delete_turn/<int:TurnoId>/', vistaTurnos.delete_turn, name='delete_turn'),
 

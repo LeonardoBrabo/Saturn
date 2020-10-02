@@ -5,7 +5,7 @@
     <div class="d-flex">
     <div class="col-4">
         <form method="POST"> 
-            <h2 class="card-title text-center">Turnos diarios de Medicos</h2>
+            <h2 class="card-title text-center">Turnos Medicos</h2>
             {% csrf_token %}
             <div class="row">
                 <div class="col-xl-8 col-4">
@@ -20,6 +20,9 @@
                     </div>
                 </div>            
                 <div class="btn-buscar">
+                    <label for="l_box1"><input type="radio" name="display_type" value="listar_dia" id="l_box1">Turnos del día</label>
+                    <label for="d_box2"><input type="radio" name="display_type" value="listar_todo" id="d_box2">Ver todos los turnos</label>
+                    
                     <button type="submit" class="btn btn-primary btn-usuarios">Buscar</button>
                     <a href="/dashboard" class="btn btn-primary btn-usuarios">Volver</a>
                 </div>
@@ -28,7 +31,7 @@
         </form>
     </div>
 
-    {%if turnos_del_dia %}
+    {%if listado %}
 
     <div class="col-8 mt-5">
         <div class="turno_list">
@@ -37,7 +40,7 @@
                 <div style="font-size: 1.5rem;
                 text-align: center;
                 margin-top: 3.8rem;
-                margin-bottom: 1.25rem;" class="titulo-doctor">Turnos del medico {{nombre_medico}}</div>
+                margin-bottom: 1.25rem;" class="titulo-doctor">Turnos del medico {{nombre_medico}}. </div>
                 <table class="table" style="width: 100%">
 
                     <tr>
@@ -48,7 +51,7 @@
                         <th style="border-bottom: 1px solid #dee2e6; text-align: center;" class="th-turn" scope="row">MEDICO</th>         
                     </tr>
 
-                    {% for turno in turnos_del_dia %}
+                    {% for turno in listado %}
                     <tr>
                         <td style="border-bottom: 1px solid #dee2e6; text-align: center;" class="td-turn">{{turno.fecha_turno}}</td>
                         <td style="border-bottom: 1px solid #dee2e6; text-align: center;" class="td-turn">{{turno.nombre}}</td>
@@ -59,17 +62,16 @@
                     {% endfor %}
                 </table>
             </div>
-            {% elif nombre_medico and turnos_del_dia|length == 0 %}
+            {% elif nombre_medico and listado|length == 0 %}
             <div class="botton d-flex justify-content-center align-items-center">No hay turnos resgitrados para el medico {{nombre_medico}}</div>
             {%endif%}
                 
-                {%if turnos_del_dia %}
+                {%if listado %}
                 <button id="imprimirListadoTurnos" class="btn btn-primary btn-usuarios">Imprimir</button>
                 {%endif%}
                 
         </div>
-    </div>
-</div> 
+    </div> 
 </div>
 
 
