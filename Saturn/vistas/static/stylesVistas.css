@@ -3,7 +3,6 @@
 }
 
 html, body {
-	height: 100%;
 	margin: 0; 
 }
 
@@ -65,8 +64,13 @@ html, body {
 	font-weight: 800;
 	font-size: 2.5rem;
 	padding-top: 7rem;
+	color: black;
 }
 
+.col-md-4, .col-md-6, .col-md-8, .col-md-12 {
+	padding-left: 0px !important;
+	padding-right: 5px !important;
+}
 
 .dash-box {
 	background-image: url(imagenes/elwachin.png);
@@ -268,6 +272,7 @@ html, body {
 
 label {
 	font-weight: 700;
+	color: black;
 }
 
 .dropdown-item {

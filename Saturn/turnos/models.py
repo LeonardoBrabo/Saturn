@@ -19,6 +19,7 @@ class Especialidad(models.Model):
 class ObraSocial(models.Model):
     ObraSocialId  = models.AutoField(primary_key=True)
     descripcion   = models.CharField(max_length=50)   
+    Adicional     = models.IntegerField()
 
     def __str__(self):
         return '{}'.format(self.descripcion)
