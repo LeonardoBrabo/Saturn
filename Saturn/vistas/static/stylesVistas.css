@@ -115,6 +115,10 @@ html, body {
 	padding-left: 1rem;
 }
 
+.section-box {
+	padding-left: 7rem;
+}
+
 .navbar {
 	background-color: #15202b;
 }
