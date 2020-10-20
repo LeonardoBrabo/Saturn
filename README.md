@@ -2,7 +2,7 @@
 * [x] home (bienvenido)
 * [x] listar
 * [x] registrar nuevo usuario
-* [ ] vista del medico
-* [ ] cancelar turno
+* [x] vista del medico
+* [x] cancelar turno
 * [x] editar turno
 
